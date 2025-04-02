@@ -11,7 +11,7 @@ import org.apache.spark.SparkConf
 import com.globalmentor.apache.hadoop.fs.BareLocalFileSystem
 import org.apache.hadoop.fs.FileSystem
 
-object Main extends App with Job {
+/*object Main extends App with Job {
 
   val cliArgs = args
   val MASTER_URL: String = try {
@@ -63,4 +63,4 @@ object Main extends App with Job {
   val processedDF: DataFrame = processor.process(inputDF)
   writer.write(processedDF, "overwrite", dst_path)
 
-}
+}*/
