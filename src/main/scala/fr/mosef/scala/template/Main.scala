@@ -64,3 +64,26 @@ import org.apache.hadoop.fs.FileSystem
   writer.write(processedDF, "overwrite", dst_path)
 
 }*/
+
+object Main extends App {
+  val conf = new SparkConf()
+  conf.set("spark.driver.memory", "64M")
+  conf.set("spark.testing.memory", "471859200")
+  val sparkSession = SparkSession
+    .builder
+    .master("local[1]")
+    .config(conf)
+    .enableHiveSupport()
+    .getOrCreate()
+
+  sparkSession
+    .sparkContext
+    .hadoopConfiguration
+    .setClass("fs.file.impl",  classOf[BareLocalFileSystem], classOf[FileSystem])
+
+
+  print(sparkSession.sql("SELECT 'A'").show())
+}
+
+
+
