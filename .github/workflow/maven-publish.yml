@@ -9,8 +9,8 @@ on:
       - 'main'
       - 'dev'
 
-#  release:
-#    types: [created]
+  release:
+    types: [created]
 
 jobs:
   build:
